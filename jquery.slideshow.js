@@ -13,6 +13,9 @@
 		return this.each(function() {
 			// Inside the setInterval() block, `this` references the window object instead of the slideshow container element, so we store it inside a var
 			var $elem = $(this);
+			// At least 2 childrens are required
+			if( $elem.children().length < 2 ){ return; }
+			// Show first item without animation
 			$elem.children().eq(0).appendTo($elem).show();
 			// Iterate through the slides
 			setInterval(function() {
